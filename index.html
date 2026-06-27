@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yield & Hodl | TechnoYield</title>
+    <!-- Подключаем библиотеку для графиков -->
+    <script src="https://jsdelivr.net"></script>
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 { color: #f0f6fc; border-bottom: 1px solid #21262d; padding-bottom: 10px; }
+        h2 { color: #f0f6fc; margin-top: 30px; }
+        .chart-container {
+            position: relative;
+            margin: 30px auto;
+            height: 300px;
+            width: 300px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #238636;
+            color: #ffffff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn:hover { background-color: #2ea043; }
+        ul { line-height: 1.6; }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <h1>🧩 ПОРТФЕЛЬ «YIELD & HODL» | ТЕХНОФИН 🔑</h1>
+    <p>Личный on-chain дневник консервативного дегена. Стратегия динамической ребалансировки «Штанги» (60% в бетоне, 40% в DeFi).</p>
+
+    <h2>📊 Живая структура долей фонда</h2>
+    
+    <!-- Сюда JS-скрипт нарисует нашу круговую диаграмму -->
+    <div class="chart-container">
+        <canvas id="portfolioChart"></canvas>
+    </div>
+
+    <h2>🏛️ Базовая стратегия</h2>
+    <ul>
+        <li><strong>ЧТО покупать?</strong> Баланс трех сил: 🟠 Рост (BTC), 🛡️ Защита (XAUT) и 🧲 Yield (DeFi-титаны AERO, CRV, PENDLE).</li>
+        <li><strong>КОГДА покупать?</strong> Жесткий еженедельный DCA по воскресеньям ровно на $50. Дисциплина бьет тайминг 💸.</li>
+        <li><strong>СКОЛЬКО покупать?</strong> Свободный кэш + прибыль от фарминга направляются в «Актив Недели» — токен с наибольшим отклонением от цели в DropStab.</li>
+    </ul>
+
+    <center>
+        <a href="./yield.md" class="btn">🧲 ПЕРЕЙТИ К ТАБЛИЦЕ ДОХОДНОСТИ И ОТЧЕТАМ ➔</a>
+    </center>
+
+    <script>
+        // НАСТРОЙКА ДИАГРАММЫ (Каждое воскресенье меняйте цифры в массиве data)
+        const ctx = document.getElementById('portfolioChart').getContext('2d');
+        const portfolioChart = new Chart(ctx, {
+            type: 'doughnut', // Тип: "бублик" как на DropStab
+            data: {
+                labels: ['Bitcoin (BTC)', 'Tether Gold (XAUT)', 'Aerodrome (AERO)', 'Curve (CRV)', 'Pendle (PENDLE)'],
+                datasets: [{
+                    // Ваши балансы в долларах на 28.06.2026 ($300, $300, $140, $130, $130)
+                    data: [300, 300, 140, 130, 130], 
+                    backgroundColor: [
+                        '#f2a900', // Оранжевый BTC
+                        '#cca43b', // Золотой XAUT
+                        '#0052ff', // Синий AERO
+                        '#ff0000', // Красный CRV
+                        '#00ffcc'  // Бирюзовый PENDLE
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#c9d1d9' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
