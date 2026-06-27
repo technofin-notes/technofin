@@ -53,6 +53,21 @@
     box-shadow: 0 0 25px rgba(0, 82, 255, 0.8);
     transform: translateY(-2px); 
 }
+        /* Адаптивность для мобильных экранов (меньше 600px) */
+@media (max-width: 600px) {
+    body { padding: 20px 10px; } /* Уменьшаем отступы по бокам */
+    h1 { font-size: 1.5rem; }     /* Уменьшаем главный заголовок */
+    h2 { font-size: 1.2rem; }     /* Уменьшаем подзаголовки */
+    .chart-container { 
+        width: 260px;             /* Слегка сужаем график, чтобы он не вылезал */
+        height: 260px; 
+    }
+    .btn { 
+        width: 100%;              /* Кнопка становится на всю ширину экрана */
+        box-sizing: border-box; 
+        text-align: center;
+    }
+}
     </style>
 </head>
 <body>
