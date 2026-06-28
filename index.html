@@ -24,12 +24,63 @@
             filter: drop-shadow(0 0 12px rgba(164, 59, 250, 0.6));
         }
         h2 { color: #f0f6fc; margin-top: 30px; }
-        .chart-container {
-            position: relative;
+        
+        /* ЧИСТЫЙ CSS ВЕБ3-БУБЛИК (Мгновенная загрузка, 0 ошибок) */
+        .chart-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             margin: 30px auto;
-            height: 300px;
-            width: 300px;
         }
+        .donut-chart {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            /* Математически точный расчет углов под ваши пропорции: 30% / 30% / 10% / 10% / 10% / 10% */
+            background: conic-gradient(
+                #f2a900 0% 30%,     /* BTC: 30% */
+                #cca43b 30% 60%,    /* XAUT: 30% */
+                #0052ff 60% 70%,    /* AERO: 10% */
+                #ff0000 70% 80%,    /* CRV: 10% */
+                #00ffcc 80% 90%,    /* PENDLE: 10% */
+                #375bd2 90% 100%    /* LINK: 10% */
+            );
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+        /* Создаем дырку внутри бублика */
+        .donut-chart::before {
+            content: "";
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            width: 50%;
+            height: 50%;
+            background-color: #0d1117;
+            border-radius: 50%;
+        }
+        
+        /* Красивая кастомная легенда */
+        .legend-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            max-width: 500px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+        }
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            margin-right: 8px;
+        }
+
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, #0052ff 0%, #7928ca 100%);
@@ -55,7 +106,9 @@
             body { padding: 20px 12px; }
             h1 { font-size: 1.5rem; display: block; text-align: center; }
             h2 { font-size: 1.2rem; text-align: center; }
-            .chart-container { width: 250px; height: 250px; margin: 15px auto; }
+            .donut-chart { width: 200px; height: 200px; }
+            .legend-container { gap: 10px; }
+            .legend-item { font-size: 11px; }
             .btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
             ul { padding-left: 20px; font-size: 0.95rem; }
         }
@@ -63,8 +116,8 @@
 </head>
 <body>
 
-    <h1> ПОРТФЕЛЬ «YIELD & HODL» | ТЕХНОФИН </h1>
-    <p>Личный on-chain фонд со стратегией динамической ребалансировки</p>
+    <h1>🧩 ПОРТФЕЛЬ «YIELD & HODL» | ТЕХНОФИН 🔑</h1>
+    <p>Личный on-chain фонд со стратегией динамической ребалансировки.</p>
 
     <h2>🏛️ Базовая стратегия</h2>
     <ul>
@@ -79,60 +132,35 @@
         </li>
         <li>
             <strong>КОГДА покупать?</strong><br>
-            Стратегия DCA (Dollar-Cost Averaging): покупка активов каждую неделю, по воскресеньям, ровно на $50. Вне зависимости от того, растёт рынок или падает. Дисциплина всегда бьет тайминг.
+            Стратегия DCA (Dollar-Cost Averaging): покупка активов каждую неделю, по воскресеньям, ровно на $50. Вне зависимости от того, растёт рынок или падает. Дисциплина всегда бьет тайминг 💸.
         </li>
         <li>
             <strong>СКОЛЬКО покупать?</strong><br>
             Свободный кэш + прибыль от фарминга направляются в «Актив Недели» — токен с наибольшим отклонением от цели. Рынок сам выравнивает наш фонд.<br>
-            <em>Также возможна ребалансировка к целевым пропорциям 30/30/40 при отклонении более 10%. Это позволяет всегда откупать активы по более низкой цене и продавать по более высокой цене.</em>
+            <em>Также возможна ребалансировка к целевым пропорциям 30/30/40 при отклонении более 10%.</em>
         </li>
     </ul>
 
     <h2>📊 Структура долей фонда</h2>
-    <div class="chart-container">
-        <canvas id="portfolioChart"></canvas>
+    
+    <!-- Визуальный блок графика -->
+    <div class="chart-wrap">
+        <div class="donut-chart"></div>
+        
+        <!-- Кастомная легенда, которая никогда не поедет на смартфонах -->
+        <div class="legend-container">
+            <div class="legend-item"><div class="legend-color" style="background-color: #f2a900;"></div>Bitcoin (BTC) - 30%</div>
+            <div class="legend-item"><div class="legend-color" style="background-color: #cca43b;"></div>Tether Gold (XAUT) - 30%</div>
+            <div class="legend-item"><div class="legend-color" style="background-color: #0052ff;"></div>Aerodrome (AERO) - 10%</div>
+            <div class="legend-item"><div class="legend-color" style="background-color: #ff0000;"></div>Curve (CRV) - 10%</div>
+            <div class="legend-item"><div class="legend-color" style="background-color: #00ffcc;"></div>Pendle (PENDLE) - 10%</div>
+            <div class="legend-item"><div class="legend-color" style="background-color: #375bd2;"></div>Chainlink (LINK) - 10%</div>
+        </div>
     </div>
 
     <center>
         <a href="./yield.html" class="btn">Трекер доходности и отчёты ➔</a>
     </center>
 
-    <!-- ПОДКЛЮЧАЕМ СКРИПТЫ СТРОГО В КОНЦЕ BODY -->
-    <script src="https://jsdelivr.net"></script>
-    <script>
-        const ctx = document.getElementById('portfolioChart').getContext('2d');
-        const portfolioChart = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Bitcoin (BTC)', 'Tether Gold (XAUT)', 'Aerodrome (AERO)', 'Curve (CRV)', 'Pendle (PENDLE)', 'Chainlink (LINK)'],
-                datasets: [{
-                    data:, 
-                    backgroundColor: [
-                        '#f2a900', // BTC
-                        '#cca43b', // XAUT
-                        '#0052ff', // AERO
-                        '#ff0000', // CRV
-                        '#00ffcc', // PENDLE
-                        '#375bd2'  // LINK
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { 
-                            color: '#c9d1d9',
-                            boxWidth: 12,
-                            font: { size: 11 }
-                        }
-                    }
-                }
-            }
-        });
-    </script>
 </body>
 </html>
