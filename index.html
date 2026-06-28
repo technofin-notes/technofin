@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yield & Hodl | TechnoYield</title>
-    <!-- Подключаем библиотеку для графиков -->
-    <script src="https://jsdelivr.net"></script>
     <style>
         body {
             background-color: #0d1117;
@@ -16,17 +14,15 @@
             margin: 0 auto;
         }
         h1 { 
-    /* Сине-фиолетовый Web3 градиент */
-    background: linear-gradient(135deg, #0052ff 0%, #a43bfa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Окрашиваем сам текст в градиент */
-    display: inline-block;
-    border-bottom: 1px solid #21262d; 
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    /* Неоновое свечение вокруг букв */
-    filter: drop-shadow(0 0 12px rgba(164, 59, 250, 0.6));
-}
+            background: linear-gradient(135deg, #0052ff 0%, #a43bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            border-bottom: 1px solid #21262d; 
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 12px rgba(164, 59, 250, 0.6));
+        }
         h2 { color: #f0f6fc; margin-top: 30px; }
         .chart-container {
             position: relative;
@@ -35,121 +31,108 @@
             width: 300px;
         }
         .btn {
-    display: inline-block;
-    /* Сине-фиолетовый Web3 градиент */
-    background: linear-gradient(135deg, #0052ff 0%, #7928ca 100%); 
-    color: #ffffff;
-    padding: 14px 28px;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    margin-top: 20px;
-    transition: all 0.3s ease; /* Плавная анимация */
-    /* Неоновое свечение за счет тени */
-    box-shadow: 0 0 15px rgba(121, 40, 202, 0.5); 
-}
-.btn:hover { 
-    /* При наведении кнопка светится ярче и слегка увеличивается */
-    box-shadow: 0 0 25px rgba(0, 82, 255, 0.8);
-    transform: translateY(-2px); 
-}
-        /* Адаптивность для мобильных экранов (меньше 600px) */
-@media (max-width: 600px) {
-    body { padding: 20px 10px; } /* Уменьшаем отступы по бокам */
-    h1 { font-size: 1.5rem; }     /* Уменьшаем главный заголовок */
-    h2 { font-size: 1.2rem; }     /* Уменьшаем подзаголовки */
-    .chart-container { 
-        width: 260px;             /* Слегка сужаем график, чтобы он не вылезал */
-        height: 260px; 
-    }
-    .btn { 
-        width: 100%;              /* Кнопка становится на всю ширину экрана */
-        box-sizing: border-box; 
-        text-align: center;
-    }
-}
+            display: inline-block;
+            background: linear-gradient(135deg, #0052ff 0%, #7928ca 100%);
+            color: #ffffff;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
+        }
+        .btn:hover { 
+            box-shadow: 0 0 25px rgba(0, 82, 255, 0.8);
+            transform: translateY(-2px);
+        }
+        ul { line-height: 1.6; }
+        li { margin-bottom: 10px; }
+        a { color: #58a6ff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 12px; }
+            h1 { font-size: 1.5rem; display: block; text-align: center; }
+            h2 { font-size: 1.2rem; text-align: center; }
+            .chart-container { width: 250px; height: 250px; margin: 15px auto; }
+            .btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
+            ul { padding-left: 20px; font-size: 0.95rem; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>ПОРТФЕЛЬ «YIELD & HODL» | ТЕХНОФИН</h1>
-    <p>Личный on-chain фонд со стратегией динамической ребалансировки </p>
+    <h1> ПОРТФЕЛЬ «YIELD & HODL» | ТЕХНОФИН </h1>
+    <p>Личный on-chain фонд со стратегией динамической ребалансировки</p>
 
     <h2>🏛️ Базовая стратегия</h2>
     <ul>
-        <li><strong>ЧТО покупать?</strong> 
-            <p>Портфель собирается из трёх категорий активов, чтобы работать на любых стадиях рынка:</p>
-
-    <p>🟠 РОСТ (30%): Bitcoin (BTC) - главный долгосрочный локомотив.</p>
-    <p>🛡️ ЗАЩИТА (30%): Tether Gold (XAUT) - токенизированное золото.</p>
-    <p>🧲 YIELD (40%): DeFi-стратегия - печатный станок реальной доходности (Real Yield).</p></li>
-        <li><strong>КОГДА покупать?</strong> 
-            <p>Стратегия DCA (Dollar-Cost Averaging): покупка активов каждую неделю, по воскресеньям, ровно на $50. Вне зависимости от того, растёт рынок или падает. Дисциплина всегда бьёт тайминг.</p></li>
-        <li><strong>СКОЛЬКО покупать?</strong> 
-            <p>Свободный кэш + прибыль от фарминга направляются в «Актив Недели» — токен с наибольшим отклонением от цели. Рынок сам выравнивает наш фонд.</p>
-                <p>Также возможна ребалансировка к целевым пропорциям 30/30/40 при отклонении более 10%.</p></li>
+        <li>
+            <strong>ЧТО покупать?</strong><br>
+            Портфель собирается из трёх категорий активов, чтобы работать на любых стадиях рынка:
+            <ul>
+                <li>🟠 <strong>РОСТ (30%):</strong> Bitcoin (BTC) - главный долгосрочный локомотив.</li>
+                <li>🛡️ <strong>ЗАЩИТА (30%):</strong> Tether Gold (XAUT) - токенизированное золото.</li>
+                <li>🧲 <strong>YIELD (40%):</strong> DeFi-стратегия - печатный станок реальной доходности (Real Yield).</li>
+            </ul>
+        </li>
+        <li>
+            <strong>КОГДА покупать?</strong><br>
+            Стратегия DCA (Dollar-Cost Averaging): покупка активов каждую неделю, по воскресеньям, ровно на $50. Вне зависимости от того, растёт рынок или падает. Дисциплина всегда бьет тайминг.
+        </li>
+        <li>
+            <strong>СКОЛЬКО покупать?</strong><br>
+            Свободный кэш + прибыль от фарминга направляются в «Актив Недели» — токен с наибольшим отклонением от цели. Рынок сам выравнивает наш фонд.<br>
+            <em>Также возможна ребалансировка к целевым пропорциям 30/30/40 при отклонении более 10%. Это позволяет всегда откупать активы по более низкой цене и продавать по более высокой цене.</em>
+        </li>
     </ul>
 
     <h2>📊 Структура долей фонда</h2>
-    <!-- Сюда JS-скрипт нарисует нашу круговую диаграмму -->
-    <!-- Шаг 1. Подключаем библиотеку Chart.js в блок <head> (если еще не подключена) -->
-<script src="https://jsdelivr.net"></script>
-
-<!-- Шаг 2. Размещаем этот контейнер в теле сайта <body> там, где должен быть график -->
-<div style="position: relative; margin: 30px auto; height: 300px; width: 300px;">
-    <canvas id="portfolioChart"></canvas>
-</div>
-
-<!-- Шаг 3. Вставляем скрипт отрисовки в самый низ страницы перед закрывающим тегом </body> -->
-<script>
-    const ctx = document.getElementById('portfolioChart').getContext('2d');
-    const portfolioChart = new Chart(ctx, {
-        type: 'doughnut', // Формат бублика
-        data: {
-            labels: [
-                'Bitcoin (BTC) - 30%', 
-                'Tether Gold (XAUT) - 30%', 
-                'Aerodrome (AERO) - 10%', 
-                'Curve (CRV) - 10%', 
-                'Pendle (PENDLE) - 10%', 
-                'Chainlink (LINK) - 10%'
-            ],
-            datasets: [{
-                // Стартовые балансы в долларах на 28.06.2026 под новый состав активов
-                data:, 
-                backgroundColor: [
-                    '#f2a900', // Оранжевый BTC
-                    '#cca43b', // Золотой XAUT
-                    '#0052ff', // Синий AERO
-                    '#ff0000', // Красный CRV
-                    '#00ffcc', // Бирюзовый PENDLE
-                    '#375bd2'  // Синий LINK
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: { 
-                        color: '#c9d1d9', // Цвет текста под темную тему GitHub
-                        boxWidth: 12,
-                        font: { size: 11, family: '-apple-system, BlinkMacSystemFont, "Segoe UI"' }
-                    }
-                }
-            }
-        }
-    });
-</script>
-
+    <div class="chart-container">
+        <canvas id="portfolioChart"></canvas>
+    </div>
 
     <center>
         <a href="./yield.html" class="btn">Трекер доходности и отчёты ➔</a>
     </center>
 
-    
+    <!-- ПОДКЛЮЧАЕМ СКРИПТЫ СТРОГО В КОНЦЕ BODY -->
+    <script src="https://jsdelivr.net"></script>
+    <script>
+        const ctx = document.getElementById('portfolioChart').getContext('2d');
+        const portfolioChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Bitcoin (BTC)', 'Tether Gold (XAUT)', 'Aerodrome (AERO)', 'Curve (CRV)', 'Pendle (PENDLE)', 'Chainlink (LINK)'],
+                datasets: [{
+                    data:, 
+                    backgroundColor: [
+                        '#f2a900', // BTC
+                        '#cca43b', // XAUT
+                        '#0052ff', // AERO
+                        '#ff0000', // CRV
+                        '#00ffcc', // PENDLE
+                        '#375bd2'  // LINK
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { 
+                            color: '#c9d1d9',
+                            boxWidth: 12,
+                            font: { size: 11 }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
-
