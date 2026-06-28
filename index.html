@@ -92,45 +92,64 @@
 
     <h2>📊 Структура долей фонда</h2>
     <!-- Сюда JS-скрипт нарисует нашу круговую диаграмму -->
-    <div class="chart-container">
-        <canvas id="portfolioChart"></canvas>
-    </div>
+    <!-- Шаг 1. Подключаем библиотеку Chart.js в блок <head> (если еще не подключена) -->
+<script src="https://jsdelivr.net"></script>
+
+<!-- Шаг 2. Размещаем этот контейнер в теле сайта <body> там, где должен быть график -->
+<div style="position: relative; margin: 30px auto; height: 300px; width: 300px;">
+    <canvas id="portfolioChart"></canvas>
+</div>
+
+<!-- Шаг 3. Вставляем скрипт отрисовки в самый низ страницы перед закрывающим тегом </body> -->
+<script>
+    const ctx = document.getElementById('portfolioChart').getContext('2d');
+    const portfolioChart = new Chart(ctx, {
+        type: 'doughnut', // Формат бублика
+        data: {
+            labels: [
+                'Bitcoin (BTC) - 30%', 
+                'Tether Gold (XAUT) - 30%', 
+                'Aerodrome (AERO) - 10%', 
+                'Curve (CRV) - 10%', 
+                'Pendle (PENDLE) - 10%', 
+                'Chainlink (LINK) - 10%'
+            ],
+            datasets: [{
+                // Стартовые балансы в долларах на 28.06.2026 под новый состав активов
+                data:, 
+                backgroundColor: [
+                    '#f2a900', // Оранжевый BTC
+                    '#cca43b', // Золотой XAUT
+                    '#0052ff', // Синий AERO
+                    '#ff0000', // Красный CRV
+                    '#00ffcc', // Бирюзовый PENDLE
+                    '#375bd2'  // Синий LINK
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { 
+                        color: '#c9d1d9', // Цвет текста под темную тему GitHub
+                        boxWidth: 12,
+                        font: { size: 11, family: '-apple-system, BlinkMacSystemFont, "Segoe UI"' }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
 
     <center>
         <a href="./yield.html" class="btn">Трекер доходности и отчёты ➔</a>
     </center>
 
-    <script>
-        // НАСТРОЙКА ДИАГРАММЫ (Каждое воскресенье меняйте цифры в массиве data)
-        const ctx = document.getElementById('portfolioChart').getContext('2d');
-        const portfolioChart = new Chart(ctx, {
-            type: 'doughnut', // Тип: "бублик" как на DropStab
-            data: {
-                labels: ['Bitcoin (BTC)', 'Tether Gold (XAUT)', 'Aerodrome (AERO)', 'Curve (CRV)', 'Pendle (PENDLE)'],
-                datasets: [{
-                    // Ваши стартовые балансы в долларах на 28.06.2026 ($300, $300, $140, $130, $130)
-                    data:
-                    backgroundColor: [
-                        '#f2a900', // Оранжевый BTC
-                        '#cca43b', // Золотой XAUT
-                        '#0052ff', // Синий AERO
-                        '#ff0000', // Красный CRV
-                        '#00ffcc'  // Бирюзовый PENDLE
-                    ],
-                    borderWidth: 0
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { color: '#c9d1d9' }
-                    }
-                }
-            }
-        });
-    </script>
+    
 </body>
 </html>
 
