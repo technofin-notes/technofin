@@ -69,10 +69,10 @@
         .grid-line { stroke: #21262d; stroke-width: 1; }
         .axis-text { fill: #8b949e; font-size: 12px; font-family: sans-serif; }
 
-        /* Золотая Web3-кнопка для DropStab */
+                /* Стильная Web3-кнопка для DropStab (Сине-фиолетовый неон) */
         .btn-dropstab {
             display: inline-block;
-            background: linear-gradient(135deg, #f2a900 0%, #cca43b 100%);
+            background: linear-gradient(135deg, #0052ff 0%, #7928ca 100%);
             color: #ffffff;
             padding: 14px 28px;
             text-decoration: none;
@@ -80,12 +80,13 @@
             font-weight: bold;
             margin-top: 25px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(204, 164, 59, 0.4);
+            box-shadow: 0 0 15px rgba(121, 40, 202, 0.5);
         }
         .btn-dropstab:hover { 
-            box-shadow: 0 0 25px rgba(242, 169, 0, 0.7);
+            box-shadow: 0 0 25px rgba(0, 82, 255, 0.8);
             transform: translateY(-2px);
         }
+
 
         @media (max-width: 600px) {
             body { padding: 20px 10px; }
@@ -101,7 +102,7 @@
 
     <a href="./index.html" class="btn-back">← На главную</a>
     <br>
-    <h1>🧲 Мониторинг Портфеля, DeFi Доходности и Ребалансировок</h1>
+    <h1>Мониторинг Портфеля, DeFi Доходности и Ребалансировок</h1>
     <p>Чистая on-chain эффективность Growth, Safety и Yield частей фонда. Мы собираем реальные комиссии рынка (Real Yield) и системно направляем их на укрепление наших базовых позиций.</p>
 
     <h2>📊 1. Текущий статус всех активов фонда (Обновляется еженедельно)</h2>
@@ -120,7 +121,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>🟠 РОСТ</strong></td>
+                    <td><strong>🟠 Growth</strong></td>
                     <td><strong>Bitcoin (BTC)</strong></td>
                     <td>$300.00</td>
                     <td>$300.00</td>
@@ -129,7 +130,7 @@
                     <td><span class="badge bg-med">Средний</span></td>
                 </tr>
                 <tr>
-                    <td><strong>🛡️ЗАЩИТА</strong></td>
+                    <td><strong>🛡️ Safety</strong></td>
                     <td><strong>Tether Gold (XAUT)</strong></td>
                     <td>$300.00</td>
                     <td>$300.00</td>
@@ -138,11 +139,11 @@
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
                 <tr>
-                    <td><strong>🧲 YIELD</strong></td>
+                    <td><strong>🧲 Yield</strong></td>
                     <td><strong>Aerodrome (AERO)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>[Вписать %]</td>
+                    <td>0.0%</td>
                     <td>veAERO лок / Взятки (bribes)</td>
                     <td><span class="badge bg-med">Средний</span></td>
                 </tr>
@@ -151,7 +152,7 @@
                     <td><strong>Curve Finance (CRV)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>[Вписать %]</td>
+                    <td>0.0%</td>
                     <td>Сбор комиссий пула CRV-sdCRV</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
@@ -160,7 +161,7 @@
                     <td><strong>Pendle (PENDLE)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>[Вписать %]</td>
+                    <td>0.0%</td>
                     <td>Стейкинг на рынке процентных деривативов</td>
                     <td><span class="badge bg-med">Средний</span></td>
                 </tr>
@@ -169,7 +170,7 @@
                     <td><strong>Chainlink (LINK)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>[Вписать %]</td>
+                    <td>0.0%</td>
                     <td>Сбор комиссий пула LINK-stLINK</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
@@ -187,7 +188,7 @@
     </div>
 
     <h2>⏳ 2. Хронологический лог Динамического Цикла</h2>
-    <p>Каждое воскресенье сюда добавляется новая строка. История ребалансировок, DCA и реальных наград фонда.</p>
+    <p>Bстория ребалансировок, DCA и реальных наград фонда.</p>
     <div class="table-container">
         <table>
             <thead>
@@ -217,7 +218,7 @@
 
             <!-- 📈 3. ДИНАМИКА СТОИМОСТИ ПОРТФЕЛЯ -->
     <h2>📈 3. Динамика общей стоимости фонда (Рост капитала во времени)</h2>
-    <p>Визуальный тренд чистой стоимости Yield & Hodl портфеля, работающий без сторонних библиотек и скриптов.</p>
+    <p>Визуальный тренд чистой стоимости Yield & Hodl портфеля</p>
     
     <div class="chart-container-css">
         <svg class="svg-chart" viewBox="0 0 800 250">
