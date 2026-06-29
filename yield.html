@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yield & Ребалансировка | TechnoYield</title>
+    <!-- Подключаем ваш неоновый фавикон пазла -->
+    <link rel="icon" type="image/png" href="./favicon.png">
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 { 
+            background: linear-gradient(135deg, #0052ff 0%, #a43bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            border-bottom: 1px solid #21262d; 
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 12px rgba(164, 59, 250, 0.6));
+        }
+        h2 { color: #f0f6fc; margin-top: 40px; border-bottom: 1px solid #30363d; padding-bottom: 8px; }
+        p { line-height: 1.6; }
+        
+        /* Стилизация Web3 Таблиц */
+        .table-container { width: 100%; overflow-x: auto; margin-top: 15px; border-radius: 6px; border: 1px solid #30363d; }
+        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; background-color: #161b22; }
+        th, td { padding: 12px 15px; border: 1px solid #30363d; }
+        th { background-color: #21262d; color: #f0f6fc; font-weight: 600; }
+        tr:nth-child(even) { background-color: #1f242c; }
+        
+        /* Неоновые бейджи статусов и рисков */
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .bg-low { background-color: rgba(46, 160, 67, 0.15); color: #3fb950; border: 1px solid rgba(46, 160, 67, 0.3); }
+        .bg-med { background-color: rgba(210, 153, 34, 0.15); color: #d29922; border: 1px solid rgba(210, 153, 34, 0.3); }
+        .bg-action { background-color: rgba(88, 166, 255, 0.15); color: #58a6ff; border: 1px solid rgba(88, 166, 255, 0.3); }
+        
+        .btn-back {
+            display: inline-block;
+            color: #58a6ff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: color 0.2s ease;
+        }
+        .btn-back:hover { color: #f0f6fc; text-decoration: underline; }
+
+        /* Золотая Web3-кнопка для DropStab */
+        .btn-dropstab {
+            display: inline-block;
+            background: linear-gradient(135deg, #f2a900 0%, #cca43b 100%);
+            color: #ffffff;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(204, 164, 59, 0.4);
+        }
+        .btn-dropstab:hover { 
+            box-shadow: 0 0 25px rgba(242, 169, 0, 0.7);
+            transform: translateY(-2px);
+        }
+
+        /* Мобильная адаптивность */
+        @media (max-width: 600px) {
+            body { padding: 20px 10px; }
+            h1 { font-size: 1.4rem; }
+            h2 { font-size: 1.1rem; }
+            th, td { padding: 8px 10px; font-size: 12px; }
+            .btn-dropstab { display: block; width: 100%; box-sizing: border-box; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="./index.html" class="btn-back">← Вернуться на Главную дашборда</a>
+    <br>
+    <h1>🧲 Мониторинг DeFi Доходности и Ребалансировок</h1>
+    <p>Здесь фиксируется чистая on-chain эффективность Yield-части фонда. Мы собираем реальные комиссии рынка (Real Yield) и системно направляем их на укрепление наших базовых позиций [🧲, 🧩].</p>
+
+    <h2>📊 1. Текущий статус DeFi-позиций (Обновляется еженедельно)</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Актив</th>
+                    <th>Вложено ($)</th>
+                    <th>Текущий баланс ($)</th>
+                    <th>Текущий APR %</th>
+                    <th>Механика заработка</th>
+                    <th>Риск (IL Risk)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Aerodrome (AERO)</strong></td>
+                    <td>$100.00</td>
+                    <td>$100.00</td>
+                    <td>[Вписать %]</td>
+                    <td>veAERO лок / Эпохи и взятки (bribes)</td>
+                    <td><span class="badge bg-med">Средний</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Curve Finance (CRV)</strong></td>
+                    <td>$100.00</td>
+                    <td>$100.00</td>
+                    <td>[Вписать %]</td>
+                    <td>Стейкинг / Сбор комиссий со стейбл-пулов</td>
+                    <td><span class="badge bg-low">Низкий</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Pendle (PENDLE)</strong></td>
+                    <td>$100.00</td>
+                    <td>$100.00</td>
+                    <td>[Вписать %]</td>
+                    <td>Стейкинг на рынке процентных дериваивов</td>
+                    <td><span class="badge bg-med">Средний</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Chainlink (LINK)</strong></td>
+                    <td>$100.00</td>
+                    <td>$100.00</td>
+                    <td>[Вписать %]</td>
+                    <td>Официальный стейкинг безопасности оракулов</td>
+                    <td><span class="badge bg-low">Низкий</span></td>
+                </tr>
+                <tr>
+                    <td><strong>ИТОГО ПО YIELD</strong></td>
+                    <td><strong>$400.00</strong></td>
+                    <td><strong>$400.00</strong></td>
+                    <td><strong>Ср. APR: [ ]%</strong></td>
+                    <td><strong>Общая доля Yield: 40%</strong></td>
+                    <td><strong>В работе 🏁</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>⏳ 2. Хронологический лог Динамического Цикла (Растет строками вниз)</h2>
+    <p>Каждое воскресенье сюда добавляется новая строка. История ребалансировок, DCA и реальных наград фонда [⏳, 💸].</p>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата отчета</th>
+                    <th>Доход DeFi ($)</th>
+                    <th>Форма наград</th>
+                    <th>Внесено DCA ($)</th>
+                    <th>🎯 АКТИВ НЕДЕЛИ</th>
+                    <th>Сумма закупки ($)</th>
+                    <th>Назначение прибыли / Итог</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Самый первый запуск фонда -->
+                <tr>
+                    <td><strong>28.06.2026 (Старт)</strong></td>
+                    <td>$0.00</td>
+                    <td>—</td>
+                    <td>$0.00</td>
+                    <td>—</td>
+                    <td>$0.00</td>
+                    <td><span class="badge bg-action">Фонд запущен на $1,000 🏁</span></td>
+                </tr>
+                <!-- Сюда в следующее воскресенье вы просто допишете новый блок <tr>...</tr> строкой ниже -->
+            </tbody>
+        </table>
+    </div>
+
+    <br><br>
+    <center>
+        <a href="./index.html" class="btn-back">← Вернуться на Главную дашборда</a>
+        <br>
+        <!-- Вставьте вашу ссылку на DropStab в href ниже -->
+        <a href="ВСТАВЬТЕ_ВАШУ_ССЫЛКУ_НА_DROPSTAB" target="_blank" class="btn-dropstab">📊 ОТКРЫТЬ ЖИВОЙ ТРЕКЕР НА DROPSTAB ➔</a>
+    </center>
+
+</body>
+</html>
 
