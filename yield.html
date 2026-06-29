@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yield & Ребалансировка | TechnoYield</title>
+    <title>Yield & Rebalance | TechnoFin</title>
     <!-- Подключаем ваш неоновый фавикон пазла -->
     <link rel="icon" type="image/png" href="./favicon.png">
     <style>
@@ -99,10 +99,10 @@
 </head>
 <body>
 
-    <a href="./index.html" class="btn-back">← Вернуться на Главную дашборда</a>
+    <a href="./index.html" class="btn-back">← На главную</a>
     <br>
-    <h1>🧲 Мониторинг DeFi Доходности и Ребалансировок</h1>
-    <p>Здесь фиксируется чистая on-chain эффективность Yield-части фонда. Мы собираем реальные комиссии рынка (Real Yield) и системно направляем их на укрепление наших базовых позиций [🧲, 🧩].</p>
+    <h1>🧲 Мониторинг Портфеля, DeFi Доходности и Ребалансировок</h1>
+    <p>Чистая on-chain эффективность Growth, Safety и Yield частей фонда. Мы собираем реальные комиссии рынка (Real Yield) и системно направляем их на укрепление наших базовых позиций.</p>
 
     <h2>📊 1. Текущий статус всех активов фонда (Обновляется еженедельно)</h2>
     <div class="table-container">
@@ -115,7 +115,7 @@
                     <th>Текущий баланс ($)</th>
                     <th>Текущий APR %</th>
                     <th>Механика заработка / Назначение</th>
-                    <th>Риск (IL/Market Risk)</th>
+                    <th>Риск</th>
                 </tr>
             </thead>
             <tbody>
@@ -129,12 +129,12 @@
                     <td><span class="badge bg-med">Средний</span></td>
                 </tr>
                 <tr>
-                    <td><strong>🛡️ ЗАЩИТА</strong></td>
+                    <td><strong>🛡️ЗАЩИТА</strong></td>
                     <td><strong>Tether Gold (XAUT)</strong></td>
                     <td>$300.00</td>
                     <td>$300.00</td>
                     <td>0.0%</td>
-                    <td>Железобетонный стабилизатор фонда (Физическое золото)</td>
+                    <td>Стабилизатор фонда (Токенизированное золото)</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
                 <tr>
@@ -152,7 +152,7 @@
                     <td>$100.00</td>
                     <td>$100.00</td>
                     <td>[Вписать %]</td>
-                    <td>Стейкинг / Сбор комиссий пулов</td>
+                    <td>Сбор комиссий пула CRV-sdCRV</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
                 <tr>
@@ -170,7 +170,7 @@
                     <td>$100.00</td>
                     <td>$100.00</td>
                     <td>[Вписать %]</td>
-                    <td>Официальный стейкинг безопасности оракулов</td>
+                    <td>Сбор комиссий пула LINK-stLINK</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
                 <tr>
@@ -179,15 +179,15 @@
                     <td><strong>$1,000.00</strong></td>
                     <td><strong>$1,000.00</strong></td>
                     <td><strong>Ср. DeFi APR: [ ]%</strong></td>
-                    <td><strong>Пропорции «Штанги» зафиксированы</strong></td>
+                    <td><strong>Пропорции зафиксированы</strong></td>
                     <td><span class="badge bg-action">В работе 🏁</span></td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <h2>⏳ 2. Хронологический лог Динамического Цикла (Растет строками вниз)</h2>
-    <p>Каждое воскресенье сюда добавляется новая строка. История ребалансировок, DCA и реальных наград фонда [⏳, 💸].</p>
+    <h2>⏳ 2. Хронологический лог Динамического Цикла</h2>
+    <p>Каждое воскресенье сюда добавляется новая строка. История ребалансировок, DCA и реальных наград фонда.</p>
     <div class="table-container">
         <table>
             <thead>
@@ -215,8 +215,9 @@
         </table>
     </div>
 
+            <!-- 📈 3. ДИНАМИКА СТОИМОСТИ ПОРТФЕЛЯ -->
     <h2>📈 3. Динамика общей стоимости фонда (Рост капитала во времени)</h2>
-    <p>Визуальный тренд чистой стоимости вашего портфеля, работающий на чистом SVG без скриптов [📊].</p>
+    <p>Визуальный тренд чистой стоимости Yield & Hodl портфеля, работающий без сторонних библиотек и скриптов.</p>
     
     <div class="chart-container-css">
         <svg class="svg-chart" viewBox="0 0 800 250">
@@ -224,17 +225,31 @@
             <line x1="50" y1="50" x2="750" y2="50" class="grid-line" />
             <text x="760" y="55" class="axis-text">$1,100</text>
             
-            <line x1="125" y1="125" x2="750" y2="125" class="grid-line" />
+            <line x1="50" y1="125" x2="750" y2="125" class="grid-line" />
             <text x="760" y="130" class="axis-text">$1,050</text>
             
             <line x1="50" y1="200" x2="750" y2="200" class="grid-line" />
             <text x="760" y="205" class="axis-text">$1,000</text>
-<br><br>
+
+            <!-- Линия самого графика (Сюда вы будете дописывать новые точки через пробел) -->
+            <polyline points="60,200" fill="none" stroke="#a43bfa" stroke-width="3" style="filter: drop-shadow(0 0 4px #a43bfa);" />
+            
+            <!-- Оранжевая неоновая точка старта ($1,000) -->
+            <circle cx="60" cy="200" r="6" fill="#ff6600" style="filter: drop-shadow(0 0 5px #ff6600);" />
+
+            <!-- 📅 Горизонтальная ось дат (Каждое воскресенье дописывайте строку вниз, увеличивая x на +80) -->
+            <text x="30" y="235" class="axis-text">28 июня 2026</text>
+            <!-- Пример для Недели 1: <text x="110" y="235" class="axis-text">05 июля</text> -->
+            <!-- Пример для Недели 2: <text x="190" y="235" class="axis-text">12 июля</text> -->
+        </svg>
+    </div>
+
+    <!-- КНОПКИ НАВИГАЦИИ -->
+    <br><br>
     <center>
-        <a href="./index.html" class="btn-back">← Вернуться на Главную дашборда</a>
+        <a href="./index.html" class="btn-back">← На главную</a>
         <br>
-        <!-- Вставьте вашу ссылку на DropStab в href ниже -->
-        <a href="ВСТАВЬТЕ_ВАШУ_ССЫЛКУ_НА_DROPSTAB" target="_blank" class="btn-dropstab">📊 ОТКРЫТЬ ЖИВОЙ ТРЕКЕР НА DROPSTAB ➔</a>
+        <a href="https://dropstab.com" target="_blank" class="btn-dropstab">📊 ОТКРЫТЬ ЖИВОЙ ТРЕКЕР ➔</a>
     </center>
 
 </body>
