@@ -51,18 +51,23 @@
         }
         .btn-back:hover { color: #f0f6fc; text-decoration: underline; }
 
-        /* Контейнер для линейного графика */
-        .history-chart-container {
-            position: relative;
-            margin: 30px auto;
-            height: 350px;
+        /* ЧИСТЫЙ CSS/SVG ЛИНЕЙНЫЙ ГРАФИК (0 ошибок, 100% надежность) */
+        .chart-container-css {
             width: 100%;
             background-color: #161b22;
             border: 1px solid #30363d;
             border-radius: 6px;
-            padding: 15px;
+            padding: 20px;
             box-sizing: border-box;
+            margin-top: 15px;
         }
+        .svg-chart {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .grid-line { stroke: #21262d; stroke-width: 1; }
+        .axis-text { fill: #8b949e; font-size: 12px; font-family: sans-serif; }
 
         /* Золотая Web3-кнопка для DropStab */
         .btn-dropstab {
@@ -82,14 +87,13 @@
             transform: translateY(-2px);
         }
 
-        /* Мобильная адаптивность */
         @media (max-width: 600px) {
             body { padding: 20px 10px; }
             h1 { font-size: 1.4rem; }
             h2 { font-size: 1.1rem; }
             th, td { padding: 8px 10px; font-size: 12px; }
             .btn-dropstab { display: block; width: 100%; box-sizing: border-box; text-align: center; }
-            .history-chart-container { height: 250px; padding: 5px; }
+            .axis-text { font-size: 10px; }
         }
     </style>
 </head>
@@ -115,7 +119,6 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- КАТЕГОРИЯ РОСТ -->
                 <tr>
                     <td><strong>🟠 РОСТ</strong></td>
                     <td><strong>Bitcoin (BTC)</strong></td>
@@ -123,9 +126,8 @@
                     <td>$300.00</td>
                     <td>0.0%</td>
                     <td>Долгосрочный HODL / Накопление капитала</td>
-                    <td><span class="badge bg-med">Средний (Волатильность)</span></td>
+                    <td><span class="badge bg-med">Средний</span></td>
                 </tr>
-                <!-- КАТЕГОРИЯ ЗАЩИТА -->
                 <tr>
                     <td><strong>🛡️ ЗАЩИТА</strong></td>
                     <td><strong>Tether Gold (XAUT)</strong></td>
@@ -133,52 +135,50 @@
                     <td>$300.00</td>
                     <td>0.0%</td>
                     <td>Железобетонный стабилизатор фонда (Физическое золото)</td>
-                    <td><span class="badge bg-low">Низкий (Хедж)</span></td>
+                    <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
-                <!-- КАТЕГОРИЯ YIELD -->
                 <tr>
                     <td><strong>🧲 YIELD</strong></td>
                     <td><strong>Aerodrome (AERO)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>45.0%</td>
-                    <td>veAERO лок / Эпохи и взятки (bribes)</td>
-                    <td><span class="badge bg-med">Средний (IL)</span></td>
+                    <td>[Вписать %]</td>
+                    <td>veAERO лок / Взятки (bribes)</td>
+                    <td><span class="badge bg-med">Средний</span></td>
                 </tr>
                 <tr>
                     <td><strong>🧲 YIELD</strong></td>
                     <td><strong>Curve Finance (CRV)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>18.5%</td>
-                    <td>Стейкинг / Сбор комиссий со стейбл-пулов</td>
-                    <td><span class="badge bg-low">Низкий (IL)</span></td>
+                    <td>[Вписать %]</td>
+                    <td>Стейкинг / Сбор комиссий пулов</td>
+                    <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
                 <tr>
                     <td><strong>🧲 YIELD</strong></td>
                     <td><strong>Pendle (PENDLE)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>28.0%</td>
+                    <td>[Вписать %]</td>
                     <td>Стейкинг на рынке процентных деривативов</td>
-                    <td><span class="badge bg-med">Средний (IL)</span></td>
+                    <td><span class="badge bg-med">Средний</span></td>
                 </tr>
                 <tr>
                     <td><strong>🧲 YIELD</strong></td>
                     <td><strong>Chainlink (LINK)</strong></td>
                     <td>$100.00</td>
                     <td>$100.00</td>
-                    <td>5.0%</td>
+                    <td>[Вписать %]</td>
                     <td>Официальный стейкинг безопасности оракулов</td>
                     <td><span class="badge bg-low">Низкий</span></td>
                 </tr>
-                <!-- ИТОГОВАЯ СТРОКА -->
                 <tr>
                     <td><strong>ФОНД</strong></td>
                     <td><strong>ИТОГО ПО ВСЕМ КАТЕГОРИЯМ</strong></td>
                     <td><strong>$1,000.00</strong></td>
                     <td><strong>$1,000.00</strong></td>
-                    <td><strong>Ср. DeFi APR: 24.1%</strong></td>
+                    <td><strong>Ср. DeFi APR: [ ]%</strong></td>
                     <td><strong>Пропорции «Штанги» зафиксированы</strong></td>
                     <td><span class="badge bg-action">В работе 🏁</span></td>
                 </tr>
@@ -215,18 +215,17 @@
         </table>
     </div>
 
-    <!-- НОВЫЙ БЛОК: ГРАФИК ИЗМЕНЕНИЯ СТОИМОСТИ ПОРТФЕЛЯ -->
+    <!-- ЧИСТЫЙ СЕТОЧНЫЙ SVG ГРАФИК БЕЗ СКРИПТОВ -->
     <h2>📈 3. Динамика общей стоимости фонда (Рост капитала во времени)</h2>
-    <p>Визуальный тренд чистой стоимости вашего портфеля, учитывающий еженедельное пополнение и силу сложного процента Web3 [📊].</p>
-    <div class="history-chart-container">
-        <canvas id="historyChart"></canvas>
-    </div>
-
-    <br><br>
-    <center>
-        <a href="./index.html" class="btn-back">← Вернуться на Главную дашборда</a>
-        <br>
-        <!-- Вставьте вашу ссылку на DropStab в href ниже -->
-        <a href="ВСТАВЬТЕ_ВАШУ_ССЫЛКУ_НА_DROPSTAB" target="_blank" class="btn-dropstab">📊 ОТКРЫТЬ ЖИВОЙ ТРЕКЕР НА DROPSTAB ➔</a>
-    </center>
-
+    <p>Визуальный тренд чистой стоимости вашего портфеля, работающий без сторонних библиотек и скриптов [📊].</p>
+    
+    <div class="chart-container-css">
+        <svg class="svg-chart" viewBox="0 0 800 250">
+            <!-- Горизонтальная сетка (уровни стоимости) -->
+            <line x1="50" y1="50" x2="750" y2="50" class="grid-line" />
+            <text x="760" y="55" class="axis-text">$1,100</text>
+            
+            <line x1="50" y1="125" x2="750" y2="125" class="grid-line" />
+            <text x="760" y="130" class="axis-text">$1,050</text>
+            
+            <line x1="50" y1="200" x2="750" y2="200" class="grid-line" />
